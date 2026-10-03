@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>胡欢 · 简历</title>
+  <meta name="description" content="胡欢的简历 - 项目管理 / AI 产品 / 跨职能协同" />
+  <meta name="author" content="胡欢" />
+  <style>
+    /* ===========================
+       设计令牌
+       =========================== */
+    :root {
+      --color-accent: #2563eb;
+      --color-accent-soft: #dbeafe;
+      --color-accent-hover: #1d4ed8;
+      --color-text: #0f172a;
+      --color-text-muted: #475569;
+      --color-text-light: #94a3b8;
+      --color-bg: #ffffff;
+      --color-bg-soft: #f8fafc;
+      --color-border: #e2e8f0;
+      --color-border-strong: #cbd5e1;
+
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+
+      --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+      --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.06);
+
+      --container-max: 880px;
+      --section-padding-y: 80px;
+
+      --font-sans: -apple-system, BlinkMacSystemFont, "PingFang SC",
+        "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial,
+        system-ui, sans-serif;
+    }
+
+    /* ===========================
+       基础重置
+       =========================== */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 72px;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--color-text);
+      background: var(--color-bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: var(--color-accent);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+    a:hover {
+      color: var(--color-accent-hover);
+    }
+
+    h1, h2, h3, h4 {
+      margin: 0;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--color-text);
+    }
+
+    p {
+      margin: 0;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1.25em;
+    }
+
+    /* ===========================
+       工具栏(粘性导航 + 打印按钮)
+       =========================== */
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: saturate(180%) blur(10px);
+      -webkit-backdrop-filter: saturate(180%) blur(10px);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .toolbar-inner {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-weight: 600;
+      font-size: 16px;
+      color: var(--color-text);
+      letter-spacing: 0.02em;
+    }
+    .brand span {
+      color: var(--color-accent);
+    }
+
+    .nav {
+      display: flex;
+      gap: 24px;
+      flex: 1;
+      justify-content: center;
+    }
+    .nav a {
+      color: var(--color-text-muted);
+      font-size: 14px;
+      padding: 4px 0;
+      position: relative;
+      transition: color 0.15s ease;
+    }
+    .nav a:hover {
+      color: var(--color-text);
+    }
+    .nav a.is-active {
+      color: var(--color-accent);
+    }
+    .nav a.is-active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -2px;
+      height: 2px;
+      background: var(--color-accent);
+      border-radius: 2px;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-print {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border: 1px solid var(--color-accent);
+      color: var(--color-accent);
+      background: var(--color-bg);
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .btn-print:hover {
+      background: var(--color-accent);
+      color: #fff;
+    }
+    .btn-print svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      color: var(--color-text);
+    }
+    .menu-toggle svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    /* ===========================
+       通用布局
+       =========================== */
+    .container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section {
+      padding: var(--section-padding-y) 0;
+      border-top: 1px solid var(--color-border);
+    }
+
+    section:first-of-type {
+      border-top: none;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+    .section-title h2 {
+      font-size: 22px;
+    }
+    .section-title .en {
+      font-size: 12px;
+      color: var(--color-text-light);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    /* ===========================
+       Hero
+       =========================== */
+    .hero {
+      padding: 96px 0 64px;
+      border-top: none;
+    }
+    .hero h1 {
+      font-size: 44px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .hero .role {
+      color: var(--color-accent);
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
+    .hero .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      color: var(--color-text-muted);
+      font-size: 14px;
+      margin-bottom: 32px;
+    }
+    .hero .meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .hero .meta svg {
+      width: 14px;
+      height: 14px;
+      color: var(--color-text-light);
+    }
+
+    .summary {
+      font-size: 15px;
+      color: var(--color-text-muted);
+      line-height: 1.85;
+      max-width: 720px;
+    }
+
+    /* ===========================
+       教育
+       =========================== */
+    .edu-item {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 4px 0;
+    }
+    .edu-item .left h3 {
+      font-size: 17px;
+      margin-bottom: 4px;
+    }
+    .edu-item .left .major {
+      color: var(--color-text-muted);
+      font-size: 14px;
+    }
+    .edu-item .time {
+      color: var(--color-text-light);
+      font-size: 13px;
+      font-variant-numeric: tabular-nums;
+      background: var(--color-bg-soft);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+    }
+
+    /* ===========================
+       实习经历卡片
+       =========================== */
+    .timeline {
+      position: relative;
+      padding-left: 8px;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 6px;
+      top: 8px;
+      bottom: 8px;
+      width: 1px;
+      background: var(--color-border-strong);
+    }
+
+    .exp-card {
+      position: relative;
+      padding: 0 0 36px 28px;
+    }
+    .exp-card:last-child {
+      padding-bottom: 0;
+    }
+    .exp-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: var(--color-bg);
+      border: 3px solid var(--color-accent);
+    }
+
+    .exp-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px 16px;
+      margin-bottom: 4px;
+    }
+    .exp-head .title h3 {
+      font-size: 17px;
+    }
+    .exp-head .title .role {
+      color: var(--color-accent);
+      font-size: 14px;
+      font-weight: 500;
+      margin-left: 8px;
+    }
+    .exp-head .company {
+      color: var(--color-text-muted);
+      font-size: 14px;
+      margin-top: 2px;
+    }
+    .exp-time {
+      color: var(--color-text-light);
+      font-size: 13px;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+      background: var(--color-bg-soft);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+    }
+
+    .exp-card ul {
+      margin-top: 12px;
+      color: var(--color-text-muted);
+      font-size: 14px;
+      line-height: 1.85;
+    }
+    .exp-card li {
+      margin-bottom: 6px;
+    }
+    .exp-card li strong {
+      color: var(--color-text);
+      font-weight: 600;
+    }
+    .highlight {
+      color: var(--color-accent);
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ===========================
+       项目经历
+       =========================== */
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .project-card {
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 20px 22px;
+      background: var(--color-bg);
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .project-card:hover {
+      border-color: var(--color-accent-soft);
+      box-shadow: var(--shadow-md);
+    }
+
+    .project-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px 16px;
+      margin-bottom: 8px;
+    }
+    .project-head h3 {
+      font-size: 16px;
+    }
+    .project-head .badge {
+      color: var(--color-accent);
+      font-size: 12px;
+      font-weight: 500;
+      background: var(--color-accent-soft);
+      padding: 2px 10px;
+      border-radius: 999px;
+      margin-left: 8px;
+    }
+    .project-time {
+      color: var(--color-text-light);
+      font-size: 13px;
+      font-variant-numeric: tabular-nums;
+    }
+    .project-desc {
+      color: var(--color-text-muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    .project-desc .highlight {
+      color: var(--color-accent);
+      font-weight: 600;
+    }
+
+    .stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+    }
+    .stack span {
+      font-size: 12px;
+      color: var(--color-text-muted);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 2px 8px;
+      background: var(--color-bg-soft);
+      line-height: 1.6;
+      white-space: nowrap;
+    }
+
+    /* ===========================
+       开源
+       =========================== */
+    .oss-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .oss-card {
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 20px 22px;
+      background: var(--color-bg);
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .oss-card:hover {
+      border-color: var(--color-accent-soft);
+      box-shadow: var(--shadow-md);
+    }
+    .oss-card h3 {
+      font-size: 16px;
+      margin-bottom: 8px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+    .oss-card h3 a {
+      color: var(--color-text);
+    }
+    .oss-card h3 a:hover {
+      color: var(--color-accent);
+    }
+    .oss-card .desc {
+      color: var(--color-text-muted);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    /* ===========================
+       技能
+       =========================== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+    .skill-group {
+      background: var(--color-bg-soft);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+    }
+    .skill-group h4 {
+      font-size: 14px;
+      color: var(--color-accent);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .skill-tag {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      color: var(--color-text);
+      font-size: 12.5px;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      line-height: 1.5;
+    }
+
+    /* ===========================
+       页脚
+       =========================== */
+    footer {
+      padding: 40px 0 60px;
+      text-align: center;
+      color: var(--color-text-light);
+      font-size: 13px;
+      border-top: 1px solid var(--color-border);
+    }
+
+    /* ===========================
+       滚动渐入
+       =========================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ===========================
+       响应式
+       =========================== */
+    @media (max-width: 768px) {
+      :root {
+        --section-padding-y: 56px;
+      }
+      .toolbar-inner {
+        padding: 12px 18px;
+        gap: 12px;
+      }
+      .nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: #fff;
+        border-bottom: 1px solid var(--color-border);
+        padding: 8px 0;
+      }
+      .nav.is-open {
+        display: flex;
+      }
+      .nav a {
+        padding: 12px 24px;
+      }
+      .nav a.is-active::after {
+        display: none;
+      }
+      .nav a.is-active {
+        background: var(--color-bg-soft);
+      }
+      .menu-toggle {
+        display: inline-flex;
+      }
+      .container {
+        padding: 0 18px;
+      }
+      .hero {
+        padding: 64px 0 40px;
+      }
+      .hero h1 {
+        font-size: 32px;
+      }
+      .hero .role {
+        font-size: 14px;
+      }
+      .hero .meta {
+        font-size: 13px;
+        gap: 14px;
+      }
+      .section-title h2 {
+        font-size: 19px;
+      }
+      .exp-card,
+      .timeline {
+        padding-left: 4px;
+      }
+      .exp-card {
+        padding-left: 24px;
+      }
+      .timeline::before {
+        left: 2px;
+      }
+      .exp-card::before {
+        left: -4px;
+      }
+      .exp-head .title h3 {
+        font-size: 16px;
+      }
+      .project-head h3 {
+        font-size: 15px;
+      }
+      .btn-print span {
+        display: none;
+      }
+      .btn-print {
+        padding: 8px 10px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero h1 {
+        font-size: 28px;
+      }
+    }
+
+    /* ===========================
+       打印样式(导出 PDF)
+       =========================== */
+    @media print {
+      :root {
+        --color-accent: #1d4ed8;
+        --color-text: #000;
+        --color-text-muted: #1f2937;
+        --color-border: #d4d4d8;
+        --color-bg-soft: #fafafa;
+        --section-padding-y: 32px;
+      }
+
+      @page {
+        margin: 14mm 14mm 14mm 14mm;
+        size: A4;
+      }
+
+      html, body {
+        background: #fff !important;
+        font-size: 11.5px;
+        line-height: 1.65;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .stack span {
+        border-color: #a1a1aa;
+        color: #18181b;
+        background: #fff;
+      }
+
+      .toolbar,
+      .menu-toggle,
+      .btn-print {
+        display: none !important;
+      }
+
+      section {
+        padding: 24px 0;
+        border-top: 1px solid #d4d4d8;
+        page-break-inside: avoid;
+      }
+      section.hero,
+      section:first-of-type {
+        border-top: none;
+        padding-top: 0;
+      }
+
+      .hero {
+        padding: 8px 0 12px !important;
+      }
+      .hero h1 {
+        font-size: 26px;
+      }
+      .hero .role {
+        font-size: 12px;
+        margin-bottom: 12px;
+      }
+      .hero .meta {
+        font-size: 11px;
+        margin-bottom: 14px;
+        gap: 12px;
+      }
+
+      .container {
+        max-width: 100% !important;
+        padding: 0 4px !important;
+      }
+
+      .section-title {
+        margin-bottom: 16px;
+      }
+      .section-title h2 {
+        font-size: 16px;
+      }
+      .section-title .en {
+        font-size: 9px;
+      }
+
+      .exp-card {
+        padding: 0 0 16px 22px;
+        page-break-inside: avoid;
+      }
+      .exp-card::before {
+        left: -2px;
+        width: 10px;
+        height: 10px;
+        border-width: 2px;
+      }
+      .timeline::before {
+        left: 2px;
+      }
+
+      .exp-head h3 {
+        font-size: 14px;
+      }
+      .exp-card ul {
+        font-size: 11px;
+        line-height: 1.6;
+      }
+      .exp-card li {
+        margin-bottom: 3px;
+      }
+
+      .project-card,
+      .oss-card {
+        padding: 12px 14px;
+        box-shadow: none;
+        page-break-inside: avoid;
+      }
+      .project-head h3 {
+        font-size: 13px;
+      }
+      .project-desc {
+        font-size: 11px;
+        line-height: 1.6;
+      }
+
+      .skill-group {
+        padding: 12px 14px;
+      }
+      .skill-tag {
+        font-size: 10.5px;
+        padding: 2px 7px;
+      }
+
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+
+      a {
+        color: var(--color-text) !important;
+        text-decoration: none;
+      }
+      /* 关键链接打印时显示 URL */
+      a.show-url::after {
+        content: " (" attr(href) ")";
+        font-size: 10px;
+        color: #6b7280;
+      }
+
+      footer {
+        padding: 12px 0 0;
+        font-size: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================== 顶部工具栏 ================== -->
+  <header class="toolbar">
+    <div class="toolbar-inner">
+      <a href="#hero" class="brand">胡欢<span>.</span></a>
+      <nav class="nav" id="nav">
+        <a href="#about" data-target="about">关于</a>
+        <a href="#education" data-target="education">教育</a>
+        <a href="#experience" data-target="experience">实习</a>
+        <a href="#projects" data-target="projects">项目</a>
+        <a href="#works" data-target="works">作品</a>
+        <a href="#opensource" data-target="opensource">开源</a>
+        <a href="#skills" data-target="skills">技能</a>
+      </nav>
+      <div class="actions">
+        <button class="btn-print" id="btnPrint" title="导出为 PDF">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+          </svg>
+          <span>导出 PDF</span>
+        </button>
+        <button class="menu-toggle" id="menuToggle" aria-label="菜单">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================== Hero ================== -->
+    <section class="hero container" id="hero">
+      <h1>胡欢</h1>
+      <p class="role">项目管理 · AI 产品 · 跨职能协同</p>
+      <div class="meta">
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          <a href="tel:19136710019">19136710019</a>
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          <a href="mailto:3608320572@qq.com">3608320572@qq.com</a>
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          <a href="https://github.com/huwanidea" target="_blank" rel="noopener">github.com/huwanidea</a>
+        </span>
+      </div>
+      <p class="summary" id="about">
+        具备 <strong>0-1 搭建项目管理体系</strong>、B 端后台 &amp; <strong>AI 产品落地</strong>、跨部门资源统筹实战能力;可独立输出 PRD/PDR、制定项目里程碑与风险管控方案,熟悉 Teambition 项目流程、Linux/MySQL 前后端基础技术,能高效对接研发、运营、高管推进项目交付;擅长数据驱动迭代、标准化流程沉淀,曾落地集团级项目管理模板、企业私有化 AI 平台,交付十余个商业化项目,具备强需求拆解、进度管控与跨职能协同能力。
+      </p>
+    </section>
+
+    <!-- ================== 教育 ================== -->
+    <section class="container" id="education">
+      <div class="section-title reveal">
+        <h2>教育经历</h2>
+        <span class="en">Education</span>
+      </div>
+      <div class="edu-item reveal">
+        <div class="left">
+          <h3>江西理工大学</h3>
+          <p class="major">虚拟现实技术 · 本科</p>
+        </div>
+        <span class="time">2022.09 – 2026.06</span>
+      </div>
+    </section>
+
+    <!-- ================== 实习经历 ================== -->
+    <section class="container" id="experience">
+      <div class="section-title reveal">
+        <h2>实习经历</h2>
+        <span class="en">Internships</span>
+      </div>
+      <div class="timeline">
+
+        <div class="exp-card reveal">
+          <div class="exp-head">
+            <div class="title">
+              <h3>深圳市敬龙国际智能科技有限公司<span class="role">项目综合管理</span></h3>
+              <p class="company">智能科技 · 多项目并行交付</p>
+            </div>
+            <span class="exp-time">2026.08 – 至今</span>
+          </div>
+          <ul>
+            <li>担任<strong>项目综合管理岗</strong>,并行推进味聚、甄选商城、九畴云市、黑白豆花、敬龙国际服务专题网页等多个核心项目,覆盖需求拆解、PRD 撰写、开发协作、测试验收、上线交付与运营交接全周期。</li>
+            <li>主导设计并落地公司 <strong>V4.8 版绩效考核体系</strong>(标准工时水位 + 超额奖励 + 综合素养四维评分),独立制作<strong>绩效考核网页版</strong>实现数字化交付,为全体成员搭建日常填报、月度复盘、奖励核算一体化流程。</li>
+            <li><strong>个人月度绩效 S-卓越</strong>(<span class="highlight">绩效兑现比例 100%</span>):8 月平均每日绩效 <span class="highlight">97.9 分</span>,月度奖励总分 <span class="highlight">313.7 分</span>;综合素养四项(协同能力 / 忠诚度 / 纪律性 / 学习力)均获 <span class="highlight">100 分</span>。</li>
+            <li>负责<strong>味聚</strong>(核心产品)需求开发、Bug 修复、上线标准制定、聚餐流程测试、厨师联盟板块设计与兼职任务分配、统一登录、邀请函与反馈收集;推动版本计划下一阶段「厨师联盟」落地。</li>
+            <li>主导 <strong>九畴云市</strong>从 0 到 1 交付:输出完整 PRD、实施计划、demo 原型,完成 Supabase + 阿里云增删改查联通;同时负责甄选商城独立拆分、Bug 修复与持续优化。</li>
+            <li>跨部门协作与会议运营:每日晨会 / 夕会会议记录输出,组织线下大会、值日表与主持表,协调兼职团队参与厨师联盟开发,与供应商沟通并解决协作项目保密与权限问题。</li>
+            <li>技术支撑与基础运维:Gitee / GitHub 版本管理、域名备案与认证、数据库连通培训、自托管 Supabase Edge Function 研究、为团队成员配置 GPT API;协助编写 AI 测试 skill 文档。</li>
+          </ul>
+        </div>
+
+        <div class="exp-card reveal">
+          <div class="exp-head">
+            <div class="title">
+              <h3>广西东呈酒店管理集团股份有限公司<span class="role">PMO / 项目经理</span></h3>
+              <p class="company">集团总部</p>
+            </div>
+            <span class="exp-time">2026.03 – 2026.06</span>
+          </div>
+          <ul>
+            <li>设计并从 0 推行 <strong>「一页纸项目管理」体系</strong>(roadmap + KPI + 风险矩阵 + 里程碑),固化为部门级标准模板并应用于 <span class="highlight">12 个</span>重点项目,形成可复用项目知识库。</li>
+            <li>担任 <strong>青猫头条项目负责人</strong>(产品 + 项目双重职责):主导需求梳理与排期、资源协调、关键功能决策(如壁纸替换逻辑)、上线流程与运营交接;实现 <span class="highlight">设备覆盖率 90%</span>(<span class="highlight">8700+</span> 设备),项目进入正式运营。</li>
+            <li>推动 <strong>Teambition</strong> 平台功能与权限治理:建立集团级项目模板、自动复盘触发规则与负责人/成员使用规范,推动后续项目复用。</li>
+            <li>组织并交付项目管理能力建设:设计并执行内部培训(<span class="highlight">覆盖率 100%</span>),推动双周会标准化(数据更新 / 问题策略 / 支撑需求),<span class="highlight">会议决策效率提升约 80%</span>。</li>
+            <li>高管会议与运营支持:负责双周会 / 月度经营会 / 半年度会议全流程(议程、材料、邀约与现场执行),保证决策闭环与行动项追踪。</li>
+          </ul>
+        </div>
+
+        <div class="exp-card reveal">
+          <div class="exp-head">
+            <div class="title">
+              <h3>宜昌先进新材料研发有限公司<span class="role">AI 产品经理</span></h3>
+              <p class="company">企业 AI 办公与平台建设</p>
+            </div>
+            <span class="exp-time">2025.06 – 2025.09</span>
+          </div>
+          <ul>
+            <li>负责企业官网及后台管理系统搭建、部署、运维与权限管理,保障品牌对外展示及内部后台业务高效运转。</li>
+            <li>基于 <strong>Dify 私有化</strong>搭建企业 AI 应用平台,落地 <strong>RAG 知识库</strong>、自定义业务工作流,上线智能客服、运营赋能、内部知识库、<strong>AI 自动电话回访</strong>场景;联动全部门落地 AI 办公,梳理标准化作业 SOP,完成企业 AI 办公体系搭建与流程规范化。</li>
+          </ul>
+        </div>
+
+        <div class="exp-card reveal">
+          <div class="exp-head">
+            <div class="title">
+              <h3>光燧互动(江西)网络科技有限公司<span class="role">IT 项目管理</span></h3>
+              <p class="company">开发运维与短视频运营支持</p>
+            </div>
+            <span class="exp-time">2025.03 – 2025.05</span>
+          </div>
+          <ul>
+            <li>负责开发 / 测试环境运维(<strong>Linux + Nginx + MySQL</strong>),保障环境稳定性并执行安全补丁与防火墙规则,提升系统可用性与安全性。</li>
+            <li>管理 <span class="highlight">3 个</span>项目域名与备案流程,域名可用率 <span class="highlight">100%</span>;通过 CMS 优化与图片压缩改进页面加载体验。</li>
+            <li>支持短视频产品运营:技术 + 数据支持 <strong>2 个 TikTok 账号</strong>,基于数据分析优化发布时间与内容策略,<span class="highlight">2 个月新增粉丝 15,000+</span>,单条播放峰值 <span class="highlight">500 万+</span>。</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================== 项目经历 ================== -->
+    <section class="container" id="projects">
+      <div class="section-title reveal">
+        <h2>项目经历</h2>
+        <span class="en">Projects</span>
+      </div>
+      <div class="project-grid">
+
+        <div class="project-card reveal">
+          <div class="project-head">
+            <h3>青猫头条 · 产品化交付<span class="badge">负责人</span></h3>
+            <span class="project-time">2026.03 – 2026.06</span>
+          </div>
+          <p class="project-desc">
+            负责端到端规划、需求拆解、功能优先级决策与上线推广;推动设备覆盖 <span class="highlight">8700+</span>,覆盖率 <span class="highlight">90%</span>,并建立标准化申请 / 上线 / 回归流程,交付运营团队持续迭代。
+          </p>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-head">
+            <h3>校园量化建模竞赛<span class="badge">负责人</span></h3>
+            <span class="project-time">2025.06 – 2025.09</span>
+          </div>
+          <p class="project-desc">
+            带队完成基于历史与情绪数据的股票预测模型并撰写论文,获 <span class="highlight">省级二等奖</span>;展现数据建模、特征工程与结果可解释性能力。
+          </p>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-head">
+            <h3>TikTok 增长实验<span class="badge">技术 + 运营</span></h3>
+            <span class="project-time">2025.03 – 2025.05</span>
+          </div>
+          <p class="project-desc">
+            通过数据拆解用户行为与发布时间窗口,在两个月内实现账号粉丝快速增长与高播放量单条视频。
+          </p>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-head">
+            <h3>外研社·国才杯 国际传播力短视频大赛<span class="badge">负责人</span></h3>
+            <span class="project-time">2024.05 – 2024.07</span>
+          </div>
+          <p class="project-desc">
+            负责短视频的创意构思与脚本撰写,参与视频剪辑制作,获 <span class="highlight">决赛国家三等奖</span>。
+          </p>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-head">
+            <h3>未来设计师 · 动画赛道<span class="badge">策划设计</span></h3>
+            <span class="project-time">2023.06 – 2023.08</span>
+          </div>
+          <p class="project-desc">
+            担任策划、画面设计、视频后期制作 3D 动画,获 <span class="highlight">国家一等奖</span>。
+          </p>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-head">
+            <h3>蓝桥杯 · 动画设计赛道<span class="badge">策划设计</span></h3>
+            <span class="project-time">2023.06 – 2023.07</span>
+          </div>
+          <p class="project-desc">
+            策划 3D 动画《种》:脚本设计、镜头设计、骨骼动画设计、蓝图设计、地编设计,获 <span class="highlight">国家二等奖</span>。
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================== 独立作品 ================== -->
+    <section class="container" id="works">
+      <div class="section-title reveal">
+        <h2>独立作品</h2>
+        <span class="en">Side Projects</span>
+      </div>
+      <div class="project-grid">
+
+        <div class="project-card reveal">
+          <div class="project-head">
+            <h3>绩效考核工作台<span class="badge">全栈开发</span></h3>
+            <span class="project-time">2026.09</span>
+          </div>
+          <p class="project-desc">
+            把公司 <span class="highlight">V4.8 绩效考核体系</span>做成网页产品:标准工时水位、超额奖励与四维素养评分由系统自动核算,打通日常填报、月度复盘与奖励核算,替代手工 Excel 交付全员使用。
+          </p>
+          <div class="stack"><span>React</span><span>TypeScript</span><span>Vite</span><span>Supabase</span><span>Recharts</span></div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-head">
+            <h3>绩效工时核算系统<span class="badge">全栈开发</span></h3>
+            <span class="project-time">2026.09</span>
+          </div>
+          <p class="project-desc">
+            将每日任务、工时与绩效核算表从 Excel 迁移为网页工具:公式内置<span class="highlight">不可被手改</span>、数据云端保存,员工按天填报,负责人实时查看当天与整月绩效结果。
+          </p>
+          <div class="stack"><span>React</span><span>TypeScript</span><span>Vite</span><span>Supabase</span><span>Recharts</span></div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-head">
+            <h3>结构镜 · PRD 全景工作台<span class="badge">独立开发</span></h3>
+            <span class="project-time">2026.08</span>
+          </div>
+          <p class="project-desc">
+            面向复杂项目的 PRD 可视化工作台:把同一份项目数据同时呈现为<span class="highlight">分层全景图、流程画布、结构化 PRD、数据模型与 AI 执行记录</span>,支持节点拖拽、依赖标注与本地持久化。
+          </p>
+          <div class="stack"><span>React</span><span>Vite</span><span>React Flow</span></div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-head">
+            <h3>SnapMark 闪记<span class="badge">独立开发</span></h3>
+            <span class="project-time">2026.09</span>
+          </div>
+          <p class="project-desc">
+            记录与打卡工具:<span class="highlight">5 个 Tab</span>的信息架构、拖拽式任务组织与数据看板,用图表呈现打卡趋势,完成从交互设计到数据落库的完整闭环。
+          </p>
+          <div class="stack"><span>React</span><span>TypeScript</span><span>Tailwind</span><span>Supabase</span><span>dnd-kit</span><span>Recharts</span></div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-head">
+            <h3>西游记自走棋 · 取经之路<span class="badge">毕业设计</span></h3>
+            <span class="project-time">2026.05</span>
+          </div>
+          <p class="project-desc">
+            纯前端自走棋网页游戏:Canvas 实现战斗、阵容与经济系统,<span class="highlight">单文件 440 KB 可离线运行</span>;配套完整答辩稿、演示脚本与问答清单。
+          </p>
+          <div class="stack"><span>HTML5</span><span>Canvas</span><span>原生 JavaScript</span></div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-head">
+            <h3>英语复习台<span class="badge">跨端交付</span></h3>
+            <span class="project-time">2026.09</span>
+          </div>
+          <p class="project-desc">
+            手机端英语复习工具:做成 <span class="highlight">PWA</span> 支持离线访问与安装到桌面,再用 Capacitor 打包为 Android APK,完成网页 → 手机 → 安装包的全链路交付。
+          </p>
+          <div class="stack"><span>PWA</span><span>Service Worker</span><span>Capacitor</span><span>Android</span></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================== 开源 ================== -->
+    <section class="container" id="opensource">
+      <div class="section-title reveal">
+        <h2>开源项目</h2>
+        <span class="en">Open Source</span>
+      </div>
+      <div class="oss-grid">
+
+        <div class="oss-card reveal">
+          <h3>
+            <a href="https://github.com/huwanidea/DashPlayer" target="_blank" rel="noopener" class="show-url">huwanidea/DashPlayer</a>
+          </h3>
+          <p class="desc">为英语学习者量身打造的视频播放器,通过观看视频、沉浸真实语境,轻松提升英语水平。#美剧 #播放器 #听力</p>
+        </div>
+
+        <div class="oss-card reveal">
+          <h3>
+            <a href="https://github.com/huwanidea/ClawVision" target="_blank" rel="noopener" class="show-url">huwanidea/ClawVision</a>
+          </h3>
+          <p class="desc">A 3D Physics-based, Real-Time Node Topology Visualizer for OpenClaw Ecosystem — 基于物理的实时节点拓扑可视化器。</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================== 技能 ================== -->
+    <section class="container" id="skills">
+      <div class="section-title reveal">
+        <h2>相关技能</h2>
+        <span class="en">Skills</span>
+      </div>
+      <div class="skills-grid">
+
+        <div class="skill-group reveal">
+          <h4>项目与产品</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">产品需求文档(PDR/PRD)</span>
+            <span class="skill-tag">一页纸项目管理</span>
+            <span class="skill-tag">Roadmap / 里程碑</span>
+            <span class="skill-tag">项目复盘</span>
+            <span class="skill-tag">Teambition</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <h4>数据与增长</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">基础数据分析</span>
+            <span class="skill-tag">A/B 意识</span>
+            <span class="skill-tag">KPI 设计与量化目标</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <h4>技术理解</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">Linux 运维</span>
+            <span class="skill-tag">Nginx</span>
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">HTML / CSS / JavaScript</span>
+            <span class="skill-tag">Unity / UE</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <h4>协作工具</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">Axure</span>
+            <span class="skill-tag">XMind / GitMind</span>
+            <span class="skill-tag">Excel 函数 / 透视表</span>
+            <span class="skill-tag">Office 套件</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <h4>多媒体与体验</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">剪映</span>
+            <span class="skill-tag">PR / AE / PS</span>
+            <span class="skill-tag">原型与物料产出</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <h4>AI 编程应用</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">Codex</span>
+            <span class="skill-tag">Cursor</span>
+            <span class="skill-tag">Claude</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 胡欢 · 最后更新 <span id="lastUpdated"></span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      "use strict";
+
+      // 最后更新时间
+      var last = document.getElementById("lastUpdated");
+      if (last) {
+        var d = new Date();
+        var pad = function (n) { return n < 10 ? "0" + n : "" + n; };
+        last.textContent = d.getFullYear() + "." + pad(d.getMonth() + 1) + "." + pad(d.getDate());
+      }
+
+      // 滚动渐入
+      if ("IntersectionObserver" in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) {
+              e.target.classList.add("is-visible");
+              io.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+
+        document.querySelectorAll(".reveal").forEach(function (el) {
+          io.observe(el);
+        });
+      } else {
+        document.querySelectorAll(".reveal").forEach(function (el) {
+          el.classList.add("is-visible");
+        });
+      }
+
+      // 导航激活态
+      var navLinks = document.querySelectorAll(".nav a[data-target]");
+      var sectionMap = {};
+      navLinks.forEach(function (link) {
+        var id = link.getAttribute("data-target");
+        var sec = document.getElementById(id);
+        if (sec) sectionMap[id] = { link: link, section: sec };
+      });
+
+      function setActive(id) {
+        Object.keys(sectionMap).forEach(function (k) {
+          sectionMap[k].link.classList.toggle("is-active", k === id);
+        });
+      }
+
+      var activeId = null;
+      function update() {
+        var scrollY = window.scrollY + 120;
+        var current = null;
+        Object.keys(sectionMap).forEach(function (k) {
+          var sec = sectionMap[k].section;
+          if (sec.offsetTop <= scrollY) current = k;
+        });
+        if (current && current !== activeId) {
+          activeId = current;
+          setActive(current);
+        }
+      }
+      window.addEventListener("scroll", update, { passive: true });
+      update();
+
+      // 移动端菜单
+      var toggle = document.getElementById("menuToggle");
+      var nav = document.getElementById("nav");
+      if (toggle && nav) {
+        toggle.addEventListener("click", function () {
+          nav.classList.toggle("is-open");
+        });
+        nav.addEventListener("click", function (e) {
+          if (e.target.tagName === "A") nav.classList.remove("is-open");
+        });
+      }
+
+      // 打印 / 导出 PDF
+      var btn = document.getElementById("btnPrint");
+      if (btn) {
+        btn.addEventListener("click", function () {
+          window.print();
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
